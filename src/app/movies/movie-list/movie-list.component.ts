@@ -31,6 +31,10 @@ export class MovieListComponent implements OnInit {
 		this.dataStorageService.getMovies();
 	}
 	
+	getMovies() {
+		return this.movies;
+	}
+	
 	onNewMovie() {
 		this.router.navigate(['new'], {relativeTo: this.route});
 	}
