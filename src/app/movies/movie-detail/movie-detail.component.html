@@ -1,11 +1,11 @@
 <div class="row">
 	<div class="col-xs-12">
-		<h1>{{ movie.name }}</h1>
+		<h1>{{ getMovie().name }}</h1>
 		
-		<p>{{ movie.description }}</p>
+		<p>{{ getMovie().description }}</p>
 		
 		<p>
-			<img src="{{ movie.imageUrl }}" />
+			<img src="{{ getMovie().imageUrl }}" />
 		</p>
 		
 		<div class="row">

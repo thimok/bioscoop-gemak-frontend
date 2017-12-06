@@ -29,6 +29,10 @@ export class MovieDetailComponent implements OnInit {
 			);
 	}
 	
+	getMovie() {
+		return this.movie;
+	}
+	
 	onEditMovie() {
 		this.router.navigate(['edit'], {relativeTo: this.route});
 	}
