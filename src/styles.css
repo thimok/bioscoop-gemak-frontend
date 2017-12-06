@@ -7,3 +7,7 @@
 .pull-left {
     background-color: gray;
 }
+
+.container {
+    padding-top: 70px;
+}
