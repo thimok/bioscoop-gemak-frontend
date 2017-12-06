@@ -1,3 +1,23 @@
-<p>
-  movie-detail works!
-</p>
+<div class="row">
+	<div class="col-xs-12">
+		<h1>{{ movie.name }}</h1>
+		
+		<p>{{ movie.description }}</p>
+		
+		<p>
+			<img src="{{ movie.imageUrl }}" />
+		</p>
+		
+		<div class="row">
+			<div class="col-xs-12">
+				<button class="btn btn-success" (click)="onEditMovie()">Edit</button>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-xs-12">
+				<button class="btn btn-danger" (click)="onDeleteMovie()">Delete</button>
+			</div>
+		</div>
+	</div>
+</div>

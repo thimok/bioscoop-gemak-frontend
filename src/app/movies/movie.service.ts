@@ -6,20 +6,7 @@ import {Subject} from "rxjs/Subject";
 export class MovieService {
 	
 	moviesChanged = new Subject<Movie[]>();
-	private movies: Movie[] = [
-		new Movie(
-			'De Enge Informatici',
-			'2017-12-01',
-			'horror',
-			'0987'
-		),
-		new Movie(
-			'De Bug',
-			'2017-12-03',
-			'horror',
-			'0098'
-		)
-	];
+	private movies: Movie[] = [];
 	
 	getMovies() {
 		return this.movies.slice();

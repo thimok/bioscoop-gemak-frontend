@@ -28,6 +28,7 @@ import { TheaterListComponent } from './theaters/theater-list/theater-list.compo
 import { MovieItemComponent } from './movies/movie-list/movie-item/movie-item.component';
 import { ScreeningItemComponent } from './screenings/screening-list/screening-item/screening-item.component';
 import { TheaterItemComponent } from './theaters/theater-list/theater-item/theater-item.component';
+import {ScrollToModule} from "@nicky-lenaers/ngx-scroll-to";
 
 @NgModule({
 	declarations: [
@@ -57,7 +58,8 @@ import { TheaterItemComponent } from './theaters/theater-list/theater-item/theat
 		FormsModule,
 		ReactiveFormsModule,
 		HttpModule,
-		AppRoutingModule
+		AppRoutingModule,
+		ScrollToModule.forRoot()
 	],
 	providers: [
 		MovieService,

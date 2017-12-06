@@ -1,10 +1,19 @@
-<a
-		style="cursor: pointer;"
-		[routerLink]="[index]"
-		routerLinkActive="active"
-		class="list-group-item clearfix">
-	<div class="pull-left">
-		<h4 class="list-group-item-heading">{{ movie.name }}</h4>
-		<p class="list-group-item-text">{{ movie.genre }}</p>
-	</div>
-</a>
+<div class="well">
+	<a
+			style="cursor: pointer;"
+			[routerLink]="[index]"
+			routerLinkActive="active"
+			class="list-group-item clearfix"
+			[ngx-scroll-to]="'#movie-detail'">
+		<div class="pull-left">
+			<!--<h4 class="list-group-item-heading">{{ movie.name }}</h4>-->
+			<!--<p class="list-group-item-text">{{ movie.genre }}</p>-->
+			<img [src]="movie.imageUrl" class="img-responsive"/>
+		</div>
+		
+		<div class="pull-right">
+			<h4 class="list-group-item-heading">{{ movie.name }}</h4>
+			<p class="list-group-item-text">{{ movie.genre }}</p>
+		</div>
+	</a>
+</div>
