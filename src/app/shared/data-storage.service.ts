@@ -83,9 +83,7 @@ export class DataStorageService {
 		this.http.post(this.movieServerUrl, movie)
 			.map(
 				(response) => {
-					const movies: Movie[] = response.json();
-					
-					return movies;
+					return response.json();
 				}
 			)
 			.subscribe(
@@ -99,9 +97,7 @@ export class DataStorageService {
 		this.http.post(this.theaterServerUrl, theater)
 			.map(
 				(response) => {
-					const theaters: Theater[] = response.json();
-					
-					return theaters;
+					return response.json();
 				}
 			)
 			.subscribe(
@@ -115,9 +111,7 @@ export class DataStorageService {
 		this.http.post(this.screeningServerUrl, screening)
 			.map(
 				(response) => {
-					const screenings: Screening[] = response.json();
-					
-					return screenings;
+					return response.json();
 				}
 			)
 			.subscribe(
