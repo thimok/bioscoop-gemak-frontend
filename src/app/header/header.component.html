@@ -1,13 +1,23 @@
-<nav class="navbar navbar-default navbar-inverse">
+<nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
 	<div class="container-fluid">
 		<div class="navbar-header">
+			<button
+					type="button"
+					class="navbar-toggle"
+					data-toggle="collapse"
+					data-target="#navbar-collapse"
+					(click)="toggleCollapsed()">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
 			<!--<a routerLink="/" class="navbar-brand">Bioscoop Gemak</a>-->
 			<a routerLink="/" class="navbar-brand">
-				<img src="/assets/images/logo.png" />
+				<img src="/assets/images/logo.png"/>
 			</a>
 		</div>
 		
-		<div class="collapse navbar-collapse">
+		<div [ngClass]="{'collapse': isCollapsed(), 'navbar-collapse': true}">
 			<ul class="nav navbar-nav">
 				<li routerLinkActive="active"><a routerLink="/movies">Movies</a></li>
 				<li routerLinkActive="active"><a routerLink="/theaters">Theaters</a></li>
