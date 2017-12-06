@@ -19,9 +19,9 @@
 		
 		<div [ngClass]="{'collapse': isCollapsed(), 'navbar-collapse': true}">
 			<ul class="nav navbar-nav">
-				<li routerLinkActive="active"><a routerLink="/movies">Movies</a></li>
-				<li routerLinkActive="active"><a routerLink="/theaters">Theaters</a></li>
-				<li routerLinkActive="active"><a routerLink="/screenings">Screenings</a></li>
+				<li routerLinkActive="active"><a routerLink="/movies" (click)="collapse()">Movies</a></li>
+				<li routerLinkActive="active"><a routerLink="/theaters" (click)="collapse()">Theaters</a></li>
+				<li routerLinkActive="active"><a routerLink="/screenings" (click)="collapse()">Screenings</a></li>
 			</ul>
 		</div>
 	</div>

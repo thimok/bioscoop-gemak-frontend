@@ -24,6 +24,10 @@ export class HeaderComponent implements OnInit {
 		console.log(this.collapsed);
 	}
 	
+	collapse() {
+		this.collapsed = true;
+	}
+	
 	isCollapsed() {
 		return this.collapsed;
 	}
