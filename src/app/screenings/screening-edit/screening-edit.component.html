@@ -1,3 +1,91 @@
-<p>
-  screening-edit works!
-</p>
+<div class="row">
+	<div class="col-xs-12">
+		<form [formGroup]="screeningForm" (ngSubmit)="onSubmit()">
+			<input
+					type="hidden"
+					id="_id"
+					formControlName="_id"
+					class="form-control">
+			
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="form-group">
+						<label for="date">Date</label>
+						<input
+								type="text"
+								id="date"
+								formControlName="date"
+								class="form-control">
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="form-group">
+						<label for="starttime">Start time</label>
+						<input
+								type="text"
+								id="starttime"
+								formControlName="starttime"
+								class="form-control">
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="form-group">
+						<label for="endtime">End time</label>
+						<input
+								type="text"
+								id="endtime"
+								formControlName="endtime"
+								class="form-control">
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="form-group">
+						<label for="movieId">Movie ID</label>
+						<input
+								type="text"
+								id="movieId"
+								formControlName="movieId"
+								class="form-control">
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="form-group">
+						<label for="theaterId">Theater ID</label>
+						<input
+								type="text"
+								id="theaterId"
+								formControlName="theaterId"
+								class="form-control">
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-xs-12">
+					<button
+							type="submit"
+							class="btn btn-success"
+							[disabled]="!screeningForm.valid">Save
+					</button>
+					<button
+							type="submit"
+							class="btn btn-danger"
+							(click)="onCancel()">Cancel
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

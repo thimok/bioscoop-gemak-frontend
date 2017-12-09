@@ -1,3 +1,15 @@
-<p>
-  screening-list works!
-</p>
+<div class="row">
+	<div class="col-xs-12">
+		<button class="btn btn-success btn-block" (click)="onNewScreening()">new Screening</button>
+	</div>
+</div>
+<hr>
+<div class="row">
+	<div
+			class="col-xs-12 col-md-6 col-lg-4"
+			*ngFor="let screeningEl of getScreenings()">
+		<app-screening-item
+				[screening]="screeningEl"
+				[index]="screeningEl._id"></app-screening-item>
+	</div>
+</div>

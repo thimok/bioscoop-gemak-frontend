@@ -1,3 +1,13 @@
-<p>
-  screening-item works!
-</p>
+<div class="row">
+	<a
+			style="cursor: pointer;"
+			[routerLink]="[index]"
+			routerLinkActive="active"
+			class="list-group-item clearfix">
+	<span class="pull-left">
+		<h3>{{ screening.date }}</h3>
+		
+		<p>Starttime: {{ screening.starttime }}</p>
+	</span>
+	</a>
+</div>
