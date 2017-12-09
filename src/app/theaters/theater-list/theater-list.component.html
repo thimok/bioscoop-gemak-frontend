@@ -1,3 +1,15 @@
-<p>
-  theater-list works!
-</p>
+<div class="row">
+	<div class="col-xs-12">
+		<button class="btn btn-success btn-block" (click)="onNewTheater()">new Theater</button>
+	</div>
+</div>
+<hr>
+<div class="row">
+	<div
+			class="col-xs-12 col-md-6 col-lg-4"
+			*ngFor="let theaterEl of getTheaters()">
+		<app-theater-item
+				[theater]="theaterEl"
+				[index]="theaterEl._id"></app-theater-item>
+	</div>
+</div>

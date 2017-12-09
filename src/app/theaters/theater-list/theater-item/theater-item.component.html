@@ -1,3 +1,13 @@
-<p>
-  theater-item works!
-</p>
+<div class="row">
+	<a
+			style="cursor: pointer;"
+			[routerLink]="[index]"
+			routerLinkActive="active"
+			class="list-group-item clearfix">
+	<span class="pull-left">
+		<h3>{{ theater.name }}</h3>
+		
+		<p>Capacity: {{ theater.capacity }}</p>
+	</span>
+	</a>
+</div>

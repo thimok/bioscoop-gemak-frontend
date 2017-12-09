@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Theater} from "../../theater.model";
 
 @Component({
-  selector: 'app-theater-item',
-  templateUrl: './theater-item.component.html',
-  styleUrls: ['./theater-item.component.css']
+	selector: 'app-theater-item',
+	templateUrl: './theater-item.component.html',
+	styleUrls: ['./theater-item.component.css']
 })
 export class TheaterItemComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+	@Input() theater: Theater;
+	@Input() index: number;
+	
+	constructor() {
+	}
+	
+	ngOnInit() {
+	}
+	
 }
