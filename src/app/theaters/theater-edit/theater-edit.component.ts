@@ -10,9 +10,9 @@ import {DataStorageService} from "../../shared/data-storage.service";
 	styleUrls: ['./theater-edit.component.css']
 })
 export class TheaterEditComponent implements OnInit {
-	id: string;
-	editMode = false;
-	theaterForm: FormGroup;
+	private id: string;
+	private editMode = false;
+	private theaterForm: FormGroup;
 	
 	constructor(private route: ActivatedRoute,
 	            private theaterService: TheaterService,
@@ -29,6 +29,18 @@ export class TheaterEditComponent implements OnInit {
 					this.initForm();
 				}
 			);
+	}
+	
+	getId() {
+		return this.id;
+	}
+	
+	getEditMode() {
+		return this.editMode;
+	}
+	
+	getTheaterForm() {
+		return this.theaterForm;
 	}
 	
 	onSubmit() {

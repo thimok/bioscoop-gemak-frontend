@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-xs-12">
-		<form [formGroup]="screeningForm" (ngSubmit)="onSubmit()">
+		<form [formGroup]="getScreeningForm()" (ngSubmit)="onSubmit()">
 			<input
 					type="hidden"
 					id="_id"
@@ -77,7 +77,7 @@
 					<button
 							type="submit"
 							class="btn btn-success"
-							[disabled]="!screeningForm.valid">Save
+							[disabled]="!getScreeningForm().valid">Save
 					</button>
 					<button
 							type="submit"

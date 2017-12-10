@@ -11,9 +11,9 @@ import {DataStorageService} from "../../shared/data-storage.service";
 })
 export class ScreeningEditComponent implements OnInit {
 	
-	id: string;
-	editMode = false;
-	screeningForm: FormGroup;
+	private id: string;
+	private editMode = false;
+	private screeningForm: FormGroup;
 	
 	constructor(private route: ActivatedRoute,
 	            private screeningService: ScreeningService,
@@ -30,6 +30,18 @@ export class ScreeningEditComponent implements OnInit {
 					this.initForm();
 				}
 			);
+	}
+	
+	getId() {
+		return this.id;
+	}
+	
+	getEditMode() {
+		return this.editMode;
+	}
+	
+	getScreeningForm() {
+		return this.screeningForm;
 	}
 	
 	onSubmit() {

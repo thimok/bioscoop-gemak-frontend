@@ -10,9 +10,9 @@ import {DataStorageService} from "../../shared/data-storage.service";
 	styleUrls: ['./movie-edit.component.css']
 })
 export class MovieEditComponent implements OnInit {
-	id: string;
-	editMode = false;
-	movieForm: FormGroup;
+	private id: string;
+	private editMode = false;
+	private movieForm: FormGroup;
 	
 	constructor(private route: ActivatedRoute,
 	            private movieService: MovieService,
@@ -29,6 +29,18 @@ export class MovieEditComponent implements OnInit {
 					this.initForm();
 				}
 			);
+	}
+	
+	getId() {
+		return this.id;
+	}
+	
+	getEditMode() {
+		return this.editMode;
+	}
+	
+	getMovieForm() {
+		return this.movieForm;
 	}
 	
 	onSubmit() {
