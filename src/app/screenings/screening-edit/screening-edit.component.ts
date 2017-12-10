@@ -3,6 +3,8 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {ScreeningService} from "../screening.service";
 import {DataStorageService} from "../../shared/data-storage.service";
+import {Movie} from "../../movies/movie.model";
+import {MovieService} from "../../movies/movie.service";
 
 @Component({
 	selector: 'app-screening-edit',
@@ -14,11 +16,13 @@ export class ScreeningEditComponent implements OnInit {
 	private id: string;
 	private editMode = false;
 	private screeningForm: FormGroup;
+	private movies: Movie[];
 	
 	constructor(private route: ActivatedRoute,
 	            private screeningService: ScreeningService,
 	            private router: Router,
-	            private dataStorageService: DataStorageService) {
+	            private dataStorageService: DataStorageService,
+	            private movieService: MovieService) {
 	}
 	
 	ngOnInit() {
@@ -30,6 +34,9 @@ export class ScreeningEditComponent implements OnInit {
 					this.initForm();
 				}
 			);
+		
+		this.dataStorageService.getMovies();
+		this.movies = this.movieService.getMovies();
 	}
 	
 	getId() {
@@ -40,11 +47,16 @@ export class ScreeningEditComponent implements OnInit {
 		return this.editMode;
 	}
 	
+	getMovies() {
+		return this.movies;
+	}
+	
 	getScreeningForm() {
 		return this.screeningForm;
 	}
 	
 	onSubmit() {
+		console.log(this.screeningForm.value);
 		if (this.editMode) {
 			this.dataStorageService.updateScreening(this.screeningForm.value);
 		} else {

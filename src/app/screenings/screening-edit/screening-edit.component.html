@@ -46,15 +46,27 @@
 				</div>
 			</div>
 			
+			<!--<div class="row">-->
+				<!--<div class="col-xs-12">-->
+					<!--<div class="form-group">-->
+						<!--<label for="movieId">Movie ID</label>-->
+						<!--<input-->
+								<!--type="text"-->
+								<!--id="movieId"-->
+								<!--formControlName="movieId"-->
+								<!--class="form-control">-->
+					<!--</div>-->
+				<!--</div>-->
+			<!--</div>-->
+			
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="form-group">
-						<label for="movieId">Movie ID</label>
-						<input
-								type="text"
-								id="movieId"
-								formControlName="movieId"
-								class="form-control">
+						<label for="movies">Movie</label>
+						<input list="movies" name="movie">
+						<datalist id="movies">
+							<option *ngFor="let item of getMovies()" [ngValue]="item._id" [value]="item._id">{{ item.name }}</option>
+						</datalist>
 					</div>
 				</div>
 			</div>

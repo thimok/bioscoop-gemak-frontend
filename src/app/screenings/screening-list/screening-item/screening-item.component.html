@@ -5,7 +5,7 @@
 			routerLinkActive="active"
 			class="list-group-item clearfix">
 	<span class="pull-left">
-		<h3>{{ screening.date }}</h3>
+		<h4>{{ screening.date | date:'d MMMM yyyy' }}</h4>
 		
 		<p>Starttime: {{ screening.starttime }}</p>
 	</span>

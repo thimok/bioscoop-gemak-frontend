@@ -44,7 +44,6 @@ export class ScreeningDetailComponent implements OnInit {
 	}
 	
 	getScheduledMovie(): Movie {
-		console.log(this.screening.movieId);
 		return this.movieService.getMovie(this.screening.movieId);
 	}
 	
