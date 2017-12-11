@@ -29,6 +29,7 @@ import { MovieItemComponent } from './movies/movie-list/movie-item/movie-item.co
 import { ScreeningItemComponent } from './screenings/screening-list/screening-item/screening-item.component';
 import { TheaterItemComponent } from './theaters/theater-list/theater-item/theater-item.component';
 import {ScrollToModule} from "@nicky-lenaers/ngx-scroll-to";
+import {ScreeningColorDirective} from "./shared/directives/screening-color.directive";
 
 @NgModule({
 	declarations: [
@@ -51,7 +52,8 @@ import {ScrollToModule} from "@nicky-lenaers/ngx-scroll-to";
 		TheaterListComponent,
 		MovieItemComponent,
 		ScreeningItemComponent,
-		TheaterItemComponent
+		TheaterItemComponent,
+		ScreeningColorDirective
 	],
 	imports: [
 		BrowserModule,
