@@ -5,6 +5,8 @@ import {ScreeningService} from "../screening.service";
 import {DataStorageService} from "../../shared/data-storage.service";
 import {Movie} from "../../movies/movie.model";
 import {MovieService} from "../../movies/movie.service";
+import {Theater} from "../../theaters/theater.model";
+import {TheaterService} from "../../theaters/theater.service";
 
 @Component({
 	selector: 'app-screening-edit',
@@ -17,12 +19,17 @@ export class ScreeningEditComponent implements OnInit {
 	private editMode = false;
 	private screeningForm: FormGroup;
 	private movies: Movie[];
+	private theaters: Theater[];
+	
+	private newMovieId: string;
+	private newTheaterId: string;
 	
 	constructor(private route: ActivatedRoute,
 	            private screeningService: ScreeningService,
 	            private router: Router,
 	            private dataStorageService: DataStorageService,
-	            private movieService: MovieService) {
+	            private movieService: MovieService,
+	            private theaterService: TheaterService) {
 	}
 	
 	ngOnInit() {
@@ -37,6 +44,7 @@ export class ScreeningEditComponent implements OnInit {
 		
 		this.dataStorageService.getMovies();
 		this.movies = this.movieService.getMovies();
+		this.theaters = this.theaterService.getTheaters();
 	}
 	
 	getId() {
@@ -51,11 +59,22 @@ export class ScreeningEditComponent implements OnInit {
 		return this.movies;
 	}
 	
+	getTheaters() {
+		return this.theaters;
+	}
+	
 	getScreeningForm() {
 		return this.screeningForm;
 	}
 	
 	onSubmit() {
+		if (this.newMovieId) {
+			this.screeningForm.value.movieId = this.newMovieId;
+		}
+		
+		if (this.newTheaterId) {
+			this.screeningForm.value.theaterId = this.newTheaterId;
+		}
 		console.log(this.screeningForm.value);
 		if (this.editMode) {
 			this.dataStorageService.updateScreening(this.screeningForm.value);
@@ -68,6 +87,14 @@ export class ScreeningEditComponent implements OnInit {
 	
 	onCancel() {
 		this.router.navigate(['screenings']);
+	}
+	
+	onChangeMovie(eventData) {
+		this.newMovieId = eventData.srcElement.selectedOptions[0].attributes[1].nodeValue;
+	}
+	
+	onChangeTheater(eventData) {
+		this.newTheaterId = eventData.srcElement.selectedOptions[0].attributes[1].nodeValue;
 	}
 	
 	private initForm() {

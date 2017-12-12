@@ -46,27 +46,15 @@
 				</div>
 			</div>
 			
-			<div class="row">
-				<div class="col-xs-12">
-					<div class="form-group">
-						<label for="movieId">Movie ID</label>
-						<input
-								type="text"
-								id="movieId"
-								formControlName="movieId"
-								class="form-control">
-					</div>
-				</div>
-			</div>
-			
 			<!--<div class="row">-->
 				<!--<div class="col-xs-12">-->
 					<!--<div class="form-group">-->
-						<!--<label for="movies">Movie</label>-->
-						<!--&lt;!&ndash;<input list="movies" name="movie">&ndash;&gt;-->
-						<!--<select id="movies">-->
-							<!--<option *ngFor="let item of getMovies()" [value]="item._id">{{ item.name }}</option>-->
-						<!--</select>-->
+						<!--<label for="movieId">Movie ID</label>-->
+						<!--<input-->
+								<!--type="text"-->
+								<!--id="movieId"-->
+								<!--formControlName="movieId"-->
+								<!--class="form-control">-->
 					<!--</div>-->
 				<!--</div>-->
 			<!--</div>-->
@@ -74,12 +62,36 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="form-group">
-						<label for="theaterId">Theater ID</label>
-						<input
-								type="text"
-								id="theaterId"
-								formControlName="theaterId"
-								class="form-control">
+						<label for="movies">Movie</label>
+						<!--<input list="movies" name="movie">-->
+						<select id="movies" (change)="onChangeMovie($event)">
+							<option *ngFor="let item of getMovies()" [value]="item._id">{{ item.name }}</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			
+			<!--<div class="row">-->
+				<!--<div class="col-xs-12">-->
+					<!--<div class="form-group">-->
+						<!--<label for="theaterId">Theater ID</label>-->
+						<!--<input-->
+								<!--type="text"-->
+								<!--id="theaterId"-->
+								<!--formControlName="theaterId"-->
+								<!--class="form-control">-->
+					<!--</div>-->
+				<!--</div>-->
+			<!--</div>-->
+			
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="form-group">
+						<label for="theaters">Theater</label>
+						<!--<input list="movies" name="movie">-->
+						<select id="theaters" (change)="onChangeTheater($event)">
+							<option *ngFor="let item of getTheaters()" [value]="item._id">{{ item.name }}</option>
+						</select>
 					</div>
 				</div>
 			</div>
