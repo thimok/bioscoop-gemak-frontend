@@ -6,18 +6,7 @@ import {Theater} from "./theater.model";
 export class TheaterService {
 	
 	theatersChanged = new Subject<Theater[]>();
-	private theaters: Theater[] = [
-		new Theater(
-			'Zaal 1',
-			100,
-			'1234'
-		),
-		new Theater(
-			'Zaal 2',
-			75,
-			'2234'
-		)
-	];
+	private theaters: Theater[] = [];
 	
 	getTheaters() {
 		return this.theaters.slice();

@@ -3,6 +3,7 @@ import {Theater} from "../theater.model";
 import {TheaterService} from "../theater.service";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {DataStorageService} from "../../shared/data-storage.service";
+import {MovieService} from "../../movies/movie.service";
 
 @Component({
 	selector: 'app-theater-detail',
@@ -16,7 +17,8 @@ export class TheaterDetailComponent implements OnInit {
 	constructor(private theaterService: TheaterService,
 	            private route: ActivatedRoute,
 	            private router: Router,
-	            private storageService: DataStorageService) {
+	            private storageService: DataStorageService,
+	            private movieService: MovieService) {
 	}
 	
 	ngOnInit() {
@@ -27,10 +29,18 @@ export class TheaterDetailComponent implements OnInit {
 					this.theater = this.theaterService.getTheater(this.id);
 				}
 			);
+		
+		this.storageService.getMovies();
 	}
 	
 	getTheater() {
 		return this.theater;
+	}
+	
+	getMovieOfScreening(id: string) {
+		var movie = this.movieService.getMovie(id);
+		
+		return movie;
 	}
 	
 	onEditTheater() {

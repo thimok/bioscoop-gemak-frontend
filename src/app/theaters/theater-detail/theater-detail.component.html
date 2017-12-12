@@ -4,6 +4,16 @@
 		
 		<p>Capacity: {{ getTheater().capacity }}</p>
 		
+		<h3 *ngIf="getTheater().screenings.length > 0">Scheduled screenings:</h3>
+		
+		<a *ngFor="let screening of getTheater().screenings" [routerLink]="['/screenings', screening._id]">
+			<div class="well">
+				<p class="dark"><strong>Date:</strong> {{ screening.date | date:'EEEE d MMMM yyyy' }}</p>
+				<p class="dark"><strong>Time:</strong> {{ screening.starttime }} - {{ screening.endtime }}</p>
+				<p class="dark"><strong>Movie:</strong> {{ getMovieOfScreening(screening.movieId).name }}</p>
+			</div>
+		</a>
+		
 		<p>
 			<button class="btn btn-success btn-block" (click)="onEditTheater()">Edit</button>
 			<button class="btn btn-danger btn-block" (click)="onDeleteTheater()">Delete</button>
