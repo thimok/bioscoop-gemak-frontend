@@ -8,16 +8,17 @@
 		
 		<p>{{ getMovie().description }}</p>
 		
-		<h3 *ngIf="getMovie().screenings.length > 0">Shown in:</h3>
-		
-		<a *ngFor="let screening of getMovie().screenings" [routerLink]="['/screenings', screening._id]">
-			<div class="well">
-				<p class="dark"><strong>Date:</strong> {{ screening.date | date:'EEEE d MMMM yyyy' }}</p>
-				<p class="dark"><strong>Time:</strong> {{ screening.starttime }} - {{ screening.endtime }}</p>
-				<p class="dark"><strong>Theater:</strong> {{ getTheaterOfScreening(screening.theaterId).name }} ({{ getTheaterOfScreening(screening.theaterId).capacity }})</p>
-			</div>
-		</a>
-		
+		<div id="screenings" *ngIf="getScreenings().length > 0">
+			<h3>Shown in:</h3>
+			
+			<a *ngFor="let screening of getScreenings()" [routerLink]="['/screenings', screening._id]">
+				<div class="well">
+					<p class="dark"><strong>Date:</strong> {{ (screening.date | date:'EEEE d MMMM yyyy') || 'Unknown' }}</p>
+					<p class="dark"><strong>Time:</strong> {{ screening.starttime || 'Unknown' }} - {{ screening.endtime || 'Unknown' }}</p>
+					<p class="dark"><strong>Theater:</strong> {{ getTheaterOfScreening(screening.theaterId).name }} ({{ getTheaterOfScreening(screening.theaterId).capacity }})</p>
+				</div>
+			</a>
+		</div>
 		<p>
 			<button class="btn btn-success btn-block" (click)="onEditMovie()">Edit</button>
 			<button class="btn btn-danger btn-block" (click)="onDeleteMovie()">Delete</button>

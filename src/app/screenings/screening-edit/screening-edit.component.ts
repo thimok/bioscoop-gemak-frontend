@@ -7,6 +7,7 @@ import {Movie} from "../../movies/movie.model";
 import {MovieService} from "../../movies/movie.service";
 import {Theater} from "../../theaters/theater.model";
 import {TheaterService} from "../../theaters/theater.service";
+import {Screening} from "../screening.model";
 
 @Component({
 	selector: 'app-screening-edit',
@@ -20,6 +21,7 @@ export class ScreeningEditComponent implements OnInit {
 	private screeningForm: FormGroup;
 	private movies: Movie[];
 	private theaters: Theater[];
+	private screening: Screening;
 	
 	private newMovieId: string;
 	private newTheaterId: string;
@@ -33,18 +35,52 @@ export class ScreeningEditComponent implements OnInit {
 	}
 	
 	ngOnInit() {
+		// this.route.params
+		// 	.subscribe(
+		// 		(params: Params) => {
+		// 			this.id = params['id'];
+		// 			this.editMode = params['id'] != null;
+		// 			this.initForm();
+		// 		}
+		// 	);
+		//
+		// this.dataStorageService.getMovies();
+		// this.movies = this.movieService.getMovies();
+		// this.theaters = this.theaterService.getTheaters();
+		
 		this.route.params
 			.subscribe(
 				(params: Params) => {
 					this.id = params['id'];
+					this.screening = this.screeningService.getScreening(this.id);
+					
+					this.dataStorageService.getMovies();
+					this.dataStorageService.getTheaters();
+					this.dataStorageService.getScreenings();
+					
 					this.editMode = params['id'] != null;
+					
+					this.screeningService.screeningsChanged
+						.subscribe((screenings: Screening[]) => {
+							this.screening = this.screeningService.getScreening(this.id);
+							this.initForm();
+						});
+					
+					this.movieService.moviesChanged
+						.subscribe((movies: Movie[]) => {
+							this.movies = movies;
+							this.initForm();
+						});
+					
+					this.theaterService.theatersChanged
+						.subscribe((theaters: Theater[]) => {
+							this.theaters = theaters;
+							this.initForm();
+						});
+					
 					this.initForm();
 				}
-			);
-		
-		this.dataStorageService.getMovies();
-		this.movies = this.movieService.getMovies();
-		this.theaters = this.theaterService.getTheaters();
+			)
 	}
 	
 	getId() {

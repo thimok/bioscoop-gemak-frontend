@@ -27,14 +27,29 @@ export class ScreeningDetailComponent implements OnInit {
 	}
 	
 	ngOnInit() {
-		this.storageService.getMovies();
-		this.storageService.getTheaters();
+		//this.storageService.getMovies();
+		//this.storageService.getTheaters();
+		
+		// this.route.params
+		// 	.subscribe(
+		// 		(params: Params) => {
+		// 			this.id = params['id'];
+		// 			this.screening = this.screeningService.getScreening(this.id);
+		// 		}
+		// 	);
 		
 		this.route.params
 			.subscribe(
 				(params: Params) => {
+					this.storageService.getMovies();
+					this.storageService.getTheaters();
+					this.storageService.getScreenings();
 					this.id = params['id'];
-					this.screening = this.screeningService.getScreening(this.id);
+					
+					this.screeningService.screeningsChanged
+						.subscribe((screenings: Screening[]) => {
+							this.screening = this.screeningService.getScreening(this.id);
+						});
 				}
 			);
 	}

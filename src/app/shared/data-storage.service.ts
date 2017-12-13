@@ -43,6 +43,22 @@ export class DataStorageService {
 			);
 	}
 	
+	getMovieById(id: string) {
+		this.http.get(this.movieServerUrl + '/' + id)
+			.map(
+				(response) => {
+					const movie: Movie = response.json();
+					
+					return movie;
+				}
+			)
+			.subscribe(
+				(movie: Movie) => {
+					this.movieService.movieChanged.next(movie);
+				}
+			)
+	}
+	
 	getTheaters() {
 		this.http.get(this.theaterServerUrl)
 			.map(

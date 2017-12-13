@@ -3,6 +3,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {MovieService} from "../movie.service";
 import {DataStorageService} from "../../shared/data-storage.service";
+import {Movie} from "../movie.model";
 
 @Component({
 	selector: 'app-movie-edit',
@@ -13,6 +14,7 @@ export class MovieEditComponent implements OnInit {
 	private id: string;
 	private editMode = false;
 	private movieForm: FormGroup;
+	private movie: Movie;
 	
 	constructor(private route: ActivatedRoute,
 	            private movieService: MovieService,
@@ -21,11 +23,31 @@ export class MovieEditComponent implements OnInit {
 	}
 	
 	ngOnInit() {
+		// this.route.params
+		// 	.subscribe(
+		// 		(params: Params) => {
+		// 			this.id = params['id'];
+		// 			this.editMode = params['id'] != null;
+		// 			this.initForm();
+		// 		}
+		// 	);
+		
 		this.route.params
 			.subscribe(
 				(params: Params) => {
 					this.id = params['id'];
+					this.movie = this.movieService.getMovie(this.id);
+					
+					this.dataStorageService.getMovies();
+					this.dataStorageService.getTheaters();
 					this.editMode = params['id'] != null;
+					
+					this.movieService.moviesChanged
+						.subscribe((movies: Movie[]) => {
+							this.movie = this.movieService.getMovie(this.id);
+							this.initForm();
+						});
+					
 					this.initForm();
 				}
 			);

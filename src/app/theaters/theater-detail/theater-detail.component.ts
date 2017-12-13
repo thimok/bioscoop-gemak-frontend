@@ -25,8 +25,17 @@ export class TheaterDetailComponent implements OnInit {
 		this.route.params
 			.subscribe(
 				(params: Params) => {
+					// this.id = params['id'];
+					// this.theater = this.theaterService.getTheater(this.id);
+					
+					this.storageService.getMovies();
+					this.storageService.getTheaters();
 					this.id = params['id'];
-					this.theater = this.theaterService.getTheater(this.id);
+					
+					this.theaterService.theatersChanged
+						.subscribe((theaters: Theater[]) => {
+							this.theater = this.theaterService.getTheater(this.id);
+						});
 				}
 			);
 		

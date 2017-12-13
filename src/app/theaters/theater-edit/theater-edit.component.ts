@@ -3,6 +3,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {TheaterService} from "../theater.service";
 import {DataStorageService} from "../../shared/data-storage.service";
+import {Theater} from "../theater.model";
 
 @Component({
 	selector: 'app-theater-edit',
@@ -13,6 +14,7 @@ export class TheaterEditComponent implements OnInit {
 	private id: string;
 	private editMode = false;
 	private theaterForm: FormGroup;
+	private theater: Theater;
 	
 	constructor(private route: ActivatedRoute,
 	            private theaterService: TheaterService,
@@ -21,14 +23,37 @@ export class TheaterEditComponent implements OnInit {
 	}
 	
 	ngOnInit() {
+		// this.route.params
+		// 	.subscribe(
+		// 		(params: Params) => {
+		// 			this.id = params['id'];
+		// 			this.editMode = params['id'] != null;
+		// 			this.initForm();
+		// 		}
+		// 	);
+		
 		this.route.params
 			.subscribe(
 				(params: Params) => {
 					this.id = params['id'];
+					this.theater = this.theaterService.getTheater(this.id);
+					
+					this.dataStorageService.getMovies();
+					this.dataStorageService.getTheaters();
+					//this.id = params['id'];
 					this.editMode = params['id'] != null;
+					
+					this.theaterService.theatersChanged
+						.subscribe((theaters: Theater[]) => {
+							this.theater = this.theaterService.getTheater(this.id);
+							console.log(this.theater);
+							this.initForm();
+						});
+					
 					this.initForm();
 				}
 			);
+		
 	}
 	
 	getId() {
@@ -63,10 +88,10 @@ export class TheaterEditComponent implements OnInit {
 		let theaterCapacity = 0;
 		
 		if (this.editMode) {
-			const theater = this.theaterService.getTheater(this.id);
-			theaterId = theater._id;
-			theaterName = theater.name;
-			theaterCapacity = theater.capacity;
+			this.theater = this.theaterService.getTheater(this.id);
+			theaterId = this.theater._id;
+			theaterName = this.theater.name;
+			theaterCapacity = this.theater.capacity;
 		}
 		
 		this.theaterForm = new FormGroup({

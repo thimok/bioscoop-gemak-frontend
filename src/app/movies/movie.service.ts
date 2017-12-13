@@ -6,6 +6,7 @@ import {Subject} from "rxjs/Subject";
 export class MovieService {
 	
 	moviesChanged = new Subject<Movie[]>();
+	movieChanged = new Subject<Movie>();
 	private movies: Movie[] = [];
 	
 	getMovies() {

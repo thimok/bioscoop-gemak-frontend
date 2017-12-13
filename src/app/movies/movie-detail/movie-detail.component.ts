@@ -3,8 +3,9 @@ import {Movie} from "../movie.model";
 import {MovieService} from "../movie.service";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {DataStorageService} from "../../shared/data-storage.service";
-import {Theater} from "../../theaters/theater.model";
+import {Screening} from "../../screenings/screening.model";
 import {TheaterService} from "../../theaters/theater.service";
+import {Subscription} from "rxjs/Subscription";
 
 @Component({
 	selector: 'app-movie-detail',
@@ -12,8 +13,10 @@ import {TheaterService} from "../../theaters/theater.service";
 	styleUrls: ['./movie-detail.component.css']
 })
 export class MovieDetailComponent implements OnInit {
-	private movie: Movie;
+	private movie: Movie = new Movie('Default Placeholder', 'Default placeholder',
+		'1900-01-01', 'Default', 'http://via.placeholder.com/350x150', []);
 	private id: string;
+	private subscription: Subscription;
 	
 	constructor(private movieService: MovieService,
 	            private route: ActivatedRoute,
@@ -26,16 +29,30 @@ export class MovieDetailComponent implements OnInit {
 		this.route.params
 			.subscribe(
 				(params: Params) => {
+					this.storageService.getMovies();
+					this.storageService.getTheaters();
 					this.id = params['id'];
-					this.movie = this.movieService.getMovie(this.id);
+					
+					this.movieService.moviesChanged
+						.subscribe((movies: Movie[]) => {
+							this.movie = this.movieService.getMovie(this.id);
+						});
 				}
 			);
-		
-		this.storageService.getTheaters();
 	}
 	
 	getMovie() {
 		return this.movie;
+	}
+	
+	getScreenings() {
+		if (this.movie.name == 'Default Placeholder') {
+			return [
+				new Screening('1990-01-01', '12:00', '14:00', '111', '222')
+			];
+		}
+		
+		return this.movie.screenings;
 	}
 	
 	getTheaterOfScreening(id: string) {
