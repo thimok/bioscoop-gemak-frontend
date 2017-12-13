@@ -59,8 +59,16 @@ export class ScreeningEditComponent implements OnInit {
 		return this.movies;
 	}
 	
+	isEqualMovie(id: string) {
+		return this.newMovieId == id;
+	}
+	
 	getTheaters() {
 		return this.theaters;
+	}
+	
+	isEqualTheater(id: string) {
+		return this.newTheaterId == id;
 	}
 	
 	getScreeningForm() {
@@ -113,6 +121,9 @@ export class ScreeningEditComponent implements OnInit {
 			screeningEndTime = screening.endtime;
 			screeningMovieId = screening.movieId;
 			screeningTheaterId = screening.theaterId;
+			
+			this.newMovieId = screening.movieId;
+			this.newTheaterId = screening.theaterId;
 		}
 		
 		this.screeningForm = new FormGroup({

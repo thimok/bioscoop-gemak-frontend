@@ -50,7 +50,7 @@
 						<label for="movies">Movie</label>
 						<!--<input list="movies" name="movie">-->
 						<select id="movies" (change)="onChangeMovie($event)">
-							<option *ngFor="let item of getMovies()" [value]="item._id">{{ item.name }}</option>
+							<option *ngFor="let item of getMovies()" [value]="item._id" [selected]="isEqualMovie(item._id)">{{ item.name }}</option>
 						</select>
 					</div>
 				</div>
@@ -62,7 +62,7 @@
 						<label for="theaters">Theater</label>
 						<!--<input list="movies" name="movie">-->
 						<select id="theaters" (change)="onChangeTheater($event)">
-							<option *ngFor="let item of getTheaters()" [value]="item._id">{{ item.name }}</option>
+							<option *ngFor="let item of getTheaters()" [value]="item._id" [selected]="isEqualTheater(item._id)">{{ item.name }}</option>
 						</select>
 					</div>
 				</div>
