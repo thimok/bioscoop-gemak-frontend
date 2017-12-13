@@ -124,6 +124,14 @@ export class ScreeningEditComponent implements OnInit {
 			
 			this.newMovieId = screening.movieId;
 			this.newTheaterId = screening.theaterId;
+		} else {
+			if (this.movieService.getMovies().length > 0) {
+				this.newMovieId = this.movieService.getMovies()[0]._id;
+			}
+			
+			if (this.theaterService.getTheaters().length > 0) {
+				this.newTheaterId = this.theaterService.getTheaters()[0]._id;
+			}
 		}
 		
 		this.screeningForm = new FormGroup({
