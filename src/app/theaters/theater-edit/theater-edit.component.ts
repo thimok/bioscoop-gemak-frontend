@@ -3,7 +3,7 @@
 //////////////////////////
 
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {TheaterService} from "../theater.service";
 import {DataStorageService} from "../../shared/data-storage.service";
@@ -90,8 +90,8 @@ export class TheaterEditComponent implements OnInit {
 		
 		this.theaterForm = new FormGroup({
 			'_id': new FormControl(theaterId),
-			'name': new FormControl(theaterName),
-			'capacity': new FormControl(theaterCapacity)
+			'name': new FormControl(theaterName, Validators.required),
+			'capacity': new FormControl(theaterCapacity, Validators.required)
 		});
 	}
 }

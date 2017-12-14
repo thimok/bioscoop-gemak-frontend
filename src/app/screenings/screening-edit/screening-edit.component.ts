@@ -3,7 +3,7 @@
 //////////////////////////
 
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {ScreeningService} from "../screening.service";
 import {DataStorageService} from "../../shared/data-storage.service";
@@ -164,9 +164,9 @@ export class ScreeningEditComponent implements OnInit {
 		
 		this.screeningForm = new FormGroup({
 			'_id': new FormControl(screeningId),
-			'date': new FormControl(screeningDate),
-			'starttime': new FormControl(screeningStartTime),
-			'endtime': new FormControl(screeningEndTime),
+			'date': new FormControl(screeningDate, Validators.required),
+			'starttime': new FormControl(screeningStartTime, Validators.required),
+			'endtime': new FormControl(screeningEndTime, Validators.required),
 			'movieId': new FormControl(screeningMovieId),
 			'theaterId': new FormControl(screeningTheaterId)
 		});

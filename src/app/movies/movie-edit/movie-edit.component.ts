@@ -3,7 +3,7 @@
 //////////////////////////
 
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {MovieService} from "../movie.service";
 import {DataStorageService} from "../../shared/data-storage.service";
@@ -94,11 +94,11 @@ export class MovieEditComponent implements OnInit {
 		
 		this.movieForm = new FormGroup({
 			'_id': new FormControl(movieId),
-			'name': new FormControl(movieName),
-			'description': new FormControl(movieDescription),
-			'release': new FormControl(movieRelease),
-			'genre': new FormControl(movieGenre),
-			'imageUrl': new FormControl(movieImageUrl)
+			'name': new FormControl(movieName, Validators.required),
+			'description': new FormControl(movieDescription, Validators.required),
+			'release': new FormControl(movieRelease, Validators.required),
+			'genre': new FormControl(movieGenre, Validators.required),
+			'imageUrl': new FormControl(movieImageUrl, Validators.required)
 		});
 	}
 }
