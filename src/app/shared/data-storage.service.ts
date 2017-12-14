@@ -1,3 +1,7 @@
+//////////////////////////
+// Made by Thimo Koolen //
+//////////////////////////
+
 import {Injectable} from "@angular/core";
 import {environment} from "../../environments/environment";
 import {Http} from "@angular/http";

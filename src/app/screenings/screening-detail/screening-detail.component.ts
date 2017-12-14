@@ -1,3 +1,7 @@
+//////////////////////////
+// Made by Thimo Koolen //
+//////////////////////////
+
 import {Component, OnInit} from '@angular/core';
 import {Screening} from "../screening.model";
 import {ScreeningService} from "../screening.service";
@@ -27,17 +31,6 @@ export class ScreeningDetailComponent implements OnInit {
 	}
 	
 	ngOnInit() {
-		//this.storageService.getMovies();
-		//this.storageService.getTheaters();
-		
-		// this.route.params
-		// 	.subscribe(
-		// 		(params: Params) => {
-		// 			this.id = params['id'];
-		// 			this.screening = this.screeningService.getScreening(this.id);
-		// 		}
-		// 	);
-		
 		this.route.params
 			.subscribe(
 				(params: Params) => {

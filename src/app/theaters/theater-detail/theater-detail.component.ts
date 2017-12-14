@@ -1,3 +1,7 @@
+//////////////////////////
+// Made by Thimo Koolen //
+//////////////////////////
+
 import {Component, OnInit} from '@angular/core';
 import {Theater} from "../theater.model";
 import {TheaterService} from "../theater.service";

@@ -1,3 +1,7 @@
+//////////////////////////
+// Made by Thimo Koolen //
+//////////////////////////
+
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Screening} from "../screening.model";
 import {Subscription} from "rxjs/Subscription";

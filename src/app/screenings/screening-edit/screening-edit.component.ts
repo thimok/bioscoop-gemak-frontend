@@ -1,3 +1,7 @@
+//////////////////////////
+// Made by Thimo Koolen //
+//////////////////////////
+
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {ActivatedRoute, Params, Router} from "@angular/router";
@@ -35,18 +39,6 @@ export class ScreeningEditComponent implements OnInit {
 	}
 	
 	ngOnInit() {
-		// this.route.params
-		// 	.subscribe(
-		// 		(params: Params) => {
-		// 			this.id = params['id'];
-		// 			this.editMode = params['id'] != null;
-		// 			this.initForm();
-		// 		}
-		// 	);
-		//
-		// this.dataStorageService.getMovies();
-		// this.movies = this.movieService.getMovies();
-		// this.theaters = this.theaterService.getTheaters();
 		
 		this.route.params
 			.subscribe(

@@ -1,3 +1,7 @@
+//////////////////////////
+// Made by Thimo Koolen //
+//////////////////////////
+
 import {Directive, ElementRef, Input, OnInit, Renderer2} from "@angular/core";
 import {DatePipe} from "@angular/common";
 

@@ -1,3 +1,7 @@
+//////////////////////////
+// Made by Thimo Koolen //
+//////////////////////////
+
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {ActivatedRoute, Params, Router} from "@angular/router";
@@ -23,14 +27,6 @@ export class TheaterEditComponent implements OnInit {
 	}
 	
 	ngOnInit() {
-		// this.route.params
-		// 	.subscribe(
-		// 		(params: Params) => {
-		// 			this.id = params['id'];
-		// 			this.editMode = params['id'] != null;
-		// 			this.initForm();
-		// 		}
-		// 	);
 		
 		this.route.params
 			.subscribe(
@@ -46,7 +42,6 @@ export class TheaterEditComponent implements OnInit {
 					this.theaterService.theatersChanged
 						.subscribe((theaters: Theater[]) => {
 							this.theater = this.theaterService.getTheater(this.id);
-							console.log(this.theater);
 							this.initForm();
 						});
 					

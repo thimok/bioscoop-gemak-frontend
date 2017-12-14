@@ -1,3 +1,7 @@
+//////////////////////////
+// Made by Thimo Koolen //
+//////////////////////////
+
 import {Injectable} from "@angular/core";
 import {Movie} from "./movie.model";
 import {Subject} from "rxjs/Subject";

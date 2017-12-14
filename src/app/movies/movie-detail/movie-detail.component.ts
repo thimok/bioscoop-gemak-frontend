@@ -1,3 +1,7 @@
+//////////////////////////
+// Made by Thimo Koolen //
+//////////////////////////
+
 import {Component, OnInit} from '@angular/core';
 import {Movie} from "../movie.model";
 import {MovieService} from "../movie.service";
@@ -5,6 +9,8 @@ import {ActivatedRoute, Params, Router} from "@angular/router";
 import {DataStorageService} from "../../shared/data-storage.service";
 import {Screening} from "../../screenings/screening.model";
 import {TheaterService} from "../../theaters/theater.service";
+
+
 import {Subscription} from "rxjs/Subscription";
 
 @Component({

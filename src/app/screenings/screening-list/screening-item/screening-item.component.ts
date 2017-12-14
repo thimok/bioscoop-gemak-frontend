@@ -1,3 +1,7 @@
+//////////////////////////
+// Made by Thimo Koolen //
+//////////////////////////
+
 import {Component, Input, OnInit} from '@angular/core';
 import {Screening} from "../../screening.model";
 

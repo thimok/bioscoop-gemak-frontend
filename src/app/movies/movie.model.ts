@@ -1,3 +1,7 @@
+//////////////////////////
+// Made by Thimo Koolen //
+//////////////////////////
+
 import {Screening} from "../screenings/screening.model";
 export class Movie {
 	public _id: string;

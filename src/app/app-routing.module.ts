@@ -1,3 +1,7 @@
+//////////////////////////
+// Made by Thimo Koolen //
+//////////////////////////
+
 import {RouterModule, Routes} from "@angular/router";
 import {NgModule} from "@angular/core";
 import {MoviesComponent} from "./movies/movies.component";
