@@ -12,7 +12,7 @@ export class Movie {
 	public imageUrl: string;
 	public screenings: Screening[];
 	
-	constructor(name: string, description:string, release: string, genre: string, imageUrl: string, screenings: Screening[], id?: string) {
+	constructor(name: string, description: string, release: string, genre: string, imageUrl: string, screenings: Screening[], id?: string) {
 		this._id = id || '';
 		this.name = name;
 		this.description = description;

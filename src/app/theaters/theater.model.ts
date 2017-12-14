@@ -10,7 +10,7 @@ export class Theater {
 	public capacity: number;
 	public screenings: Screening[];
 	
-	constructor(name: string, capacity:number, screenings:Screening[], id?: string) {
+	constructor(name: string, capacity: number, screenings: Screening[], id?: string) {
 		this._id = id || '';
 		this.name = name;
 		this.capacity = capacity;

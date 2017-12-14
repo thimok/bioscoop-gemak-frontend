@@ -36,7 +36,6 @@ export class TheaterEditComponent implements OnInit {
 					
 					this.dataStorageService.getMovies();
 					this.dataStorageService.getTheaters();
-					//this.id = params['id'];
 					this.editMode = params['id'] != null;
 					
 					this.theaterService.theatersChanged

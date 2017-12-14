@@ -19,8 +19,7 @@ export class ScreeningColorDirective implements OnInit {
 	ngOnInit() {
 		var currentDate = new Date();
 		var oldDate = new Date(this.date);
-		//var datePipe = new DatePipe('en-us');
-		//var currentDateStr = datePipe.transform(currentDate, 'yyyy-MM-dd');
+		
 		if (currentDate <= oldDate) {
 			this.renderer.setStyle(this.element.nativeElement, 'color', this.futureColor);
 		} else {

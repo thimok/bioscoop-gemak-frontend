@@ -2,18 +2,19 @@
 // Made by Thimo Koolen //
 //////////////////////////
 
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-theater-start',
-  templateUrl: './theater-start.component.html',
-  styleUrls: ['./theater-start.component.css']
+	selector: 'app-theater-start',
+	templateUrl: './theater-start.component.html',
+	styleUrls: ['./theater-start.component.css']
 })
 export class TheaterStartComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+	
+	constructor() {
+	}
+	
+	ngOnInit() {
+	}
+	
 }
