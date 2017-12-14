@@ -4,8 +4,8 @@
 		
 		<p>Starttime: {{ getScreening().starttime }}</p>
 		<p>Endtime: {{ getScreening().endtime }}</p>
-		<p>Movie: {{ getScheduledMovie().name }}</p>
-		<p>Theater: {{ getScheduledTheater().name }}</p>
+		<p>Movie: <a [routerLink]="['/movies', getScheduledMovie()._id]">{{ getScheduledMovie().name }}</a></p>
+		<p>Theater: <a [routerLink]="['/theaters', getScheduledTheater()._id]">{{ getScheduledTheater().name }}</a></p>
 		
 		<p>
 			<button class="btn btn-success btn-block" (click)="onEditScreening()">Edit</button>
